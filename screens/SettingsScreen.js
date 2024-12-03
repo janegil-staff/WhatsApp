@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
+const image = { uri: "https://legacy.reactjs.org/logo-og.png" };
+import backgroundImage from "../assets/images/droplet.jpeg";
 const SettingsScreen = (props) => {
   return (
     <View style={styles.container}>
-      <Text>Ssettings screen</Text>
+      <Text>Settings screen</Text>
     </View>
   );
 };
