@@ -53,6 +53,7 @@ const SignInForm = (props) => {
         title="Sign in"
         onPress={() => console.log("Button pressed")}
         style={{ marginTop: 20 }}
+        disabled={!formState.formIsValid}
       />
     </>
   );
