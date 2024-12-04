@@ -1,7 +1,13 @@
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+
 import colors from "../constants/colors";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+
 const Input = (props) => {
+  const onChangeText = (text) => {
+    props.onInputChanged(props.id, text);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{props.label}</Text>
@@ -14,15 +20,14 @@ const Input = (props) => {
             style={styles.icon}
           />
         )}
-
-        <TextInput style={styles.input} />
-
-        {props.errorText && (
-          <View style={styles.errorContainer}>
-            <Text style={errorText}>{props.errorText}</Text>
-          </View>
-        )}
+        <TextInput {...props} style={styles.input} onChangeText={onChangeText} />
       </View>
+
+      {props.errorText && (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{props.errorText}</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -39,10 +44,11 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: "100%",
-    backgroundColor: colors.nearlyWhite,
+    backgroundColor: "red",
     paddingHorizontal: 10,
     paddingVertical: 15,
     borderRadius: 2,
+    backgroundColor: colors.nearlyWhite,
     flexDirection: "row",
     alignItems: "center",
   },
